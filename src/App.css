@@ -22,7 +22,7 @@
     /* justify-content: center; */
     font-size: calc(10px + 2vmin);
     color: white;
-    padding: 3%;
+    padding: 0 0 0 3%;
 }
 
 .App-link {
@@ -42,4 +42,43 @@
     display: flex;
     justify-content: center;
     margin: 10px 0 10px 0;
+}
+
+.bg {
+    background: url('./img/123.png');
+    height: calc(100vh - 4em - 10px - 2vmin);
+    width: 100%;
+    filter: blur(10px);
+    background-size: cover;
+    position: absolute;
+    /* border: solid 10px; */
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    background: rgb(255, 255, 255, 0.7);
+    border-radius: 20px;
+    margin: 30px 20% 30px 20%;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+    padding: 0 0 20px 0;
+    /* text-shadow: 1px 1px 2px black; */
+    color: rgb(45, 45, 46);
+    font-weight: 300;
+}
+
+@media (min-width: 1366px) {
+    .content {
+        margin: 5% 30% 5% 30%;
+    }
+}
+
+@media (max-width: 600px) {
+    .container-search {
+        flex-direction: column;
+    }
 }

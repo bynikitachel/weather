@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import './App.css';
-import City from './City';
-import SearchCity from './SearchCity';
-import TableInfo from './TableInfo';
+import City from './City/City';
+import SearchCity from './SearchCity/SearchCity';
+import TableInfo from './TableInfo/TableInfo';
 
 const ApiKey = '56bc069159c34592a2e67f0037e41337'
 
@@ -11,7 +11,7 @@ class App extends Component {
     super(props);
     this.state = {
       value: '',
-      data: 'fg'
+      data: 'ass'
     }
   }
 
@@ -28,15 +28,9 @@ class App extends Component {
     //     console.log(data);
     //   });
 
-    fetch("https://community-open-weather-map.p.rapidapi.com/weather?q=London%2Cuk&lat=0&lon=0&callback=test&id=2172797&lang=null&units=imperial&mode=xml", {
-      "method": "GET",
-      "headers": {
-        "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
-        "x-rapidapi-key": "4e894cd36amsh98aee08d4799ad6p110de9jsn32448b93205d"
-      }
-    })
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=$moscow&appid=$56bc069159c34592a2e67f0037e41337&units=metric`)
       .then(response => {
-        response.json().then((res) => console.log(res))
+        console.log(response);
       })
       .catch(err => {
         console.error(err);
@@ -53,12 +47,15 @@ class App extends Component {
             WeatherNow
           </p>
         </header>
-        <div className="container-search">
-          <City value={this.state.value} onChange={this.handleChange} />
-          <SearchCity handleSubmit={this.handleSubmit} />
-          {this.state.data && <TableInfo data={this.state.data} />}
-
+        <div className="bg"></div>
+        <div className="content">
+          <h1>Enter the city to get the weather:</h1>
+          <div className="container-search">
+            <City value={this.state.value} onChange={this.handleChange} />
+            <SearchCity handleSubmit={this.handleSubmit} />
+          </div>
         </div>
+        {this.state.data && <TableInfo data={this.state.data} />}
       </div>
     );
   }

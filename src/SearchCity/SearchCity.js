@@ -1,9 +1,10 @@
 import React from 'react';
+import './searchCity.css';
 
 function SearchCity(props) {
 
     return (
-        <div>
+        <div className="container-citySearch">
             <button onClick={props.handleSubmit}>Search</button>
         </div>
     )

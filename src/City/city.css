@@ -1,0 +1,32 @@
+input {
+    background: rgb(126, 129, 146);
+    border: none;
+    outline: none;
+    height: 20px;
+    padding: 10px 0 10px 0;
+    text-indent: 20px;
+    /* padding: 0; */
+    width: 100%;
+    color: #fff;
+    border-radius: 20px;
+    margin-right: auto;
+}
+
+input::placeholder {
+    color: rgb(168, 166, 163);
+}
+
+input:focus {
+    background: darkslategray;
+}
+
+.container-city {
+    flex: 3;
+    text-align: end;
+}
+
+@media (max-width: 600px) {
+    .container-city {
+        text-align: center;
+    }
+}
