@@ -4,25 +4,24 @@ import City from './City/City'
 import SearchCity from './SearchCity/SearchCity'
 import TableInfo from './TableInfo/TableInfo'
 
-const ApiKey = '56bc069159c34592a2e67f0037e41337'
-
 class App extends Component {
 
   state = {
     value: '',
-    data: 'ass',
     responseObj: null,
-    setResponseObj: null
+    setResponseObj: null,
+    checked: true,
+
   }
 
   handleChange = (event) => {
     this.setState({ value: event.target.value });
   }
 
-  handleSubmit = (event) => {
-    alert('Отправленное имя: ' + this.state.value);
-    event.preventDefault();
-  }
+  // handleSubmit = (event) => {
+  //   alert('Отправленное имя: ' + this.state.value);
+  //   event.preventDefault();
+  // }
 
   getTableInfo = () => {
     fetch(`https://community-open-weather-map.p.rapidapi.com/weather?q=${this.state.value}`, {
@@ -36,12 +35,16 @@ class App extends Component {
         response.json().then((res) => this.setState({
           responseObj: res
         }))
-
         console.log(response);
       })
       .catch(err => {
         console.error(err);
       });
+  }
+
+  changeUnit = () => {
+    this.setState({ checked: !this.state.checked })
+    console.log(this.state.checked)
   }
 
   render() {
@@ -57,10 +60,10 @@ class App extends Component {
           <h1>Enter the city to get the weather:</h1>
           <div className="container-search">
             <City value={this.state.value} onChange={this.handleChange} />
-            <SearchCity handleSubmit={this.handleSubmit} onClick={this.getTableInfo} />
+            <SearchCity onClick={this.getTableInfo} />
           </div>
         </div>
-        {this.state.responseObj && <TableInfo responseObj={this.state.responseObj} />}
+        {this.state.responseObj && <TableInfo responseObj={this.state.responseObj} checked={this.state.checked} onChange={this.changeUnit} />}
       </div>
     );
   }
