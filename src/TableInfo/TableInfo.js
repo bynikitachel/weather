@@ -1,10 +1,16 @@
 import React from 'react'
 import './tableInfo.css'
 
-export default function TableInfo({ data }) {
+function TableInfo({ responseObj }) {
+    // let [responseObj, setResponseObj] = useState({})
     return (
         <div className="container-table">
-            {data}
+            <div>
+                {/* {JSON.stringify(responseObj)} */}
+                {responseObj.name}
+            </div>
         </div>
     )
 }
+
+export default TableInfo

@@ -1,42 +1,47 @@
-import { Component } from 'react';
+import { Component } from 'react'
 import './App.css';
-import City from './City/City';
-import SearchCity from './SearchCity/SearchCity';
-import TableInfo from './TableInfo/TableInfo';
+import City from './City/City'
+import SearchCity from './SearchCity/SearchCity'
+import TableInfo from './TableInfo/TableInfo'
 
 const ApiKey = '56bc069159c34592a2e67f0037e41337'
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: '',
-      data: 'ass'
-    }
+
+  state = {
+    value: '',
+    data: 'ass',
+    responseObj: null,
+    setResponseObj: null
   }
 
   handleChange = (event) => {
-    this.setState({ value: event.target.value }, () => console.log(this.state));
+    this.setState({ value: event.target.value });
   }
 
   handleSubmit = (event) => {
     alert('Отправленное имя: ' + this.state.value);
-    // fetch('https://api.weatherbit.io/v2.0/current?city=Minsk&key=56bc069159c34592a2e67f0037e41337&include=minutely').then((response) => {
-    //   return response.json();
-    // })
-    //   .then((data) => {
-    //     console.log(data);
-    //   });
+    event.preventDefault();
+  }
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=$moscow&appid=$56bc069159c34592a2e67f0037e41337&units=metric`)
+  getTableInfo = () => {
+    fetch(`https://community-open-weather-map.p.rapidapi.com/weather?q=${this.state.value}`, {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
+        "x-rapidapi-key": "4e894cd36amsh98aee08d4799ad6p110de9jsn32448b93205d"
+      }
+    })
       .then(response => {
+        response.json().then((res) => this.setState({
+          responseObj: res
+        }))
+
         console.log(response);
       })
       .catch(err => {
         console.error(err);
       });
-
-    event.preventDefault();
   }
 
   render() {
@@ -52,10 +57,10 @@ class App extends Component {
           <h1>Enter the city to get the weather:</h1>
           <div className="container-search">
             <City value={this.state.value} onChange={this.handleChange} />
-            <SearchCity handleSubmit={this.handleSubmit} />
+            <SearchCity handleSubmit={this.handleSubmit} onClick={this.getTableInfo} />
           </div>
         </div>
-        {this.state.data && <TableInfo data={this.state.data} />}
+        {this.state.responseObj && <TableInfo responseObj={this.state.responseObj} />}
       </div>
     );
   }

@@ -5,7 +5,7 @@ function SearchCity(props) {
 
     return (
         <div className="container-citySearch">
-            <button onClick={props.handleSubmit}>Search</button>
+            <button onClick={props.onClick}>Search</button>
         </div>
     )
 }
