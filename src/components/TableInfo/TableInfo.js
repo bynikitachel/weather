@@ -1,20 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './tableInfo.css'
+import Toggle2 from '../ui/Toggle2'
 
-function TableInfo(props) {
-    let temp = props.checked ? Math.round(props.responseObj.main.temp - 273) + '℃' : Math.round(props.responseObj.main.temp) + 'K';
-
+function TableInfo({ name, pressure, temp, humidity, sunrise, sunset }) {
+    const [checked, setChecked] = useState(false)
+    let temper = !checked ? Math.round(temp - 273) + '℃' : Math.round(temp) + 'K';
     return (
         <div className="container-table">
             <div className="cityName">
-                {props.responseObj.name}
-                <div className="switcher">
-                    <div className="container-unit green"><div>K</div></div>
-                    <label class="switch">
-                        <input type="checkbox" checked={props.checked} onChange={props.onChange}></input>
-                        <span class="slider round"></span>
-                    </label>
-                    <div className="container-unit blue"><div>℃</div></div>
+                {name}
+                <div className="container-toggle-weat">
+                    <Toggle2 checked={checked} onChange={() => setChecked(!checked)} rightFied="K" leftField="℃" />
                 </div>
             </div>
             <div className="container-temp">
@@ -22,27 +18,27 @@ function TableInfo(props) {
                     <div className="bg-img-solar"></div>
                     {/* <div className="bg-img-rain"></div> */}
                     <div className="temp">
-                        <div>{temp}</div>
+                        <div>{temper}</div>
                     </div>
                 </div>
 
             </div>
             <div className={'container-info'}>
                 <div className="container-item">
-                    <div className="img-info icon-pressure"><img href="../img/pressure.png" width="45px" height="45px"></img></div>
-                    <div>{props.responseObj.main.pressure}</div>
+                    <div className="img-info icon-pressure"></div>
+                    <div className="info">{pressure} чего-то</div>
                 </div>
                 <div className="container-item">
                     <div className="img-info icon-humidity"></div>
-                    <div>{props.responseObj.main.humidity}%</div>
+                    <div className="info">{humidity}%</div>
                 </div>
                 <div className="container-item">
                     <div className="img-info icon-sunrise"></div>
-                    <div>{props.responseObj.sys.sunrise}</div>
+                    <div className="info">{sunrise}</div>
                 </div>
                 <div className="container-item">
                     <div className="img-info icon-sunset"></div>
-                    <div>{props.responseObj.sys.sunset}</div>
+                    <div className="info">{sunset}</div>
                 </div>
             </div>
         </div >

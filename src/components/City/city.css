@@ -2,13 +2,13 @@ input {
     background: rgb(126, 129, 146);
     border: none;
     outline: none;
-    height: 20px;
+    height: 34px;
     padding: 10px 0 10px 0;
     text-indent: 20px;
     /* padding: 0; */
     width: 100%;
     color: #fff;
-    border-radius: 20px;
+    border-radius: 27px;
     margin-right: auto;
 }
 

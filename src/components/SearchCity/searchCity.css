@@ -1,10 +1,10 @@
 button {
-    padding: 10px 20px 10px 20px;
+    padding: 15px 20px 15px 20px;
     border: solid 3px rgb(95, 88, 88);
     /* height: 20px; */
     outline: none;
     box-sizing: padding-box;
-    border-radius: 20px;
+    border-radius: 27px;
     /* margin-left: 10px; */
     width: 100%;
 }
@@ -17,14 +17,13 @@ button:active {
 
 .container-citySearch {
     flex: 1;
-    margin-left: 10px;
     text-align: start;
 }
 
 @media (max-width: 600px) {
-    button {
+    /* button {
         margin: 5px 0 0 0;
-    }
+    } */
     .container-citySearch {
         margin-left: 0;
     }
