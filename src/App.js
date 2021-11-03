@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, { useState } from 'react'
 import './App.css';
 import City from './components/City/City'
 import SearchCity from './components/SearchCity/SearchCity'
@@ -7,24 +7,34 @@ import TableInfoWeek from './components/TableInfoWeek/TableInfoWeek'
 // import './components/TableInfoWeek/tableInfoWeek.css'
 import Toggle2 from './components/ui/Toggle2';
 
-class App extends Component {
+function App() {
 
-  state = {
+  const [data, setData] = useState({
     value: '',
     responseObj: null,
     checkedWeat: false,
+    dayData: null,
+    weekData: null
+  })
+
+  let dayData = []
+  data.responseObj ? dayData.push(data.responseObj.main, data.responseObj.name, data.responseObj.sys) : dayData.push(null);
+  console.log('array', dayData);
+
+  let weekData = []
+  data.responseObj ? weekData.push(data.responseObj.list.slice(0, 7)) : weekData.push(null);
+  console.log('array', weekData);
+
+  const handleChange = (event) => {
+    setData({ ...data, value: event.target.value });
   }
 
-  handleChange = (event) => {
-    this.setState({ value: event.target.value });
+  const changeWeat = () => {
+    setData({ ...data, checkedWeat: !data.checkedWeat })
   }
 
-  changeWeat = () => {
-    this.setState({ checkedWeat: !this.state.checkedWeat })
-  }
-
-  getTableInfo = () => {
-    fetch(`https://community-open-weather-map.p.rapidapi.com/${this.state.checkedWeat ? 'climate/month' : 'weather'}?q=${this.state.value}`, {
+  const getTableInfo = () => {
+    fetch(`https://community-open-weather-map.p.rapidapi.com/${data.checkedWeat ? 'climate/month' : 'weather'}?q=${data.value}`, {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
@@ -32,9 +42,7 @@ class App extends Component {
       }
     })
       .then(response => {
-        response.json().then((res) => this.setState({
-          responseObj: res
-        }))
+        response.json().then((res) => setData({ ...data, responseObj: res }))
         console.log(response);
       })
       .catch(err => {
@@ -42,7 +50,7 @@ class App extends Component {
       });
   }
 
-  getDate = (timestamp) => {
+  const getDate = (timestamp) => {
     let date = new Date(timestamp * 1000);
     let min;
     if (date.getMinutes() < 10) {
@@ -53,57 +61,55 @@ class App extends Component {
     return date.getHours() + ":" + min;
   }
 
-  render() {
-    const { responseObj, checkedWeat, value } = this.state
-    return (
-      <div className="App" >
-        <header className="App-header">
-          <p>
-            WeatherNow
-          </p>
-        </header>
-        <div className="bg"></div>
-        <div className="content">
-          <h1>Enter the city to get the weather:</h1>
-          <div className="container-search">
-            <City value={value} onChange={this.handleChange} />
-            <div style={{ margin: "0 10px" }}>
-              <Toggle2 checked={checkedWeat} onChange={this.changeWeat} leftField="day" rightFied="week" />
-            </div>
-            <SearchCity onClick={this.getTableInfo} />
+  return (
+    <div className="App" >
+      <header className="App-header">
+        <p>
+          WeatherNow
+        </p>
+      </header>
+      <div className="bg"></div>
+      <div className="content">
+        <h1>Enter the city to get the weather:</h1>
+        <div className="container-search">
+          <City value={data.value} onChange={handleChange} />
+          <div style={{ margin: "0 10px" }}>
+            <Toggle2 checked={data.checkedWeat} onChange={changeWeat} leftField="day" rightFied="week" />
           </div>
+          <SearchCity onClick={getTableInfo} />
         </div>
-        {responseObj && (!responseObj.list ?
-          <TableInfo
-            name={responseObj.name}
-            onChange={this.changeUnit}
-            temp={responseObj.main.temp}
-            pressure={responseObj.main.pressure}
-            humidity={responseObj.main.humidity}
-            sunrise={responseObj ? this.getDate(responseObj.sys.sunrise) : null}
-            sunset={responseObj ? this.getDate(responseObj.sys.sunset) : null}
-          /> :
-
-          <TableInfoWeek
-            name={responseObj.city.name}
-            weekData={responseObj.list.slice(0, 7)}
-          />
-          // (responseObj.list.map((e, i) => (
-          //   i > 6 ? null :
-          //     <TableInfo
-          //       key={i + '123'}
-          //       name={responseObj.city.name}
-          //       temp={e.main.temp}
-          //       pressure={e.main.pressure}
-          //       humidity={e.main.humidity}
-          //       sunrise={responseObj ? this.getDate(responseObj.city.sunrise) : null}
-          //       sunset={responseObj ? this.getDate(responseObj.city.sunset) : null}
-          //       onChange={this.changeUnit}
-          //     />)))
-        )}
       </div>
-    );
-  }
+      {data.responseObj && (!data.responseObj.list ?
+        <TableInfo
+          data={dayData}
+        // name={data.responseObj.name}
+        // temp={data.responseObj.main.temp}
+        // pressure={data.responseObj.main.pressure}
+        // humidity={data.responseObj.main.humidity}
+        // sunrise={data.responseObj ? getDate(data.responseObj.sys.sunrise) : null}
+        // sunset={data.responseObj ? getDate(data.responseObj.sys.sunset) : null}
+        /> :
+
+        <TableInfo
+          data={weekData}
+        // name={data.responseObj.city.name}
+        // weekData={data.responseObj.list.slice(0, 7)}
+        />
+        // (responseObj.list.map((e, i) => (
+        //   i > 6 ? null :
+        //     <TableInfo
+        //       key={i + '123'}
+        //       name={responseObj.city.name}
+        //       temp={e.main.temp}
+        //       pressure={e.main.pressure}
+        //       humidity={e.main.humidity}
+        //       sunrise={responseObj ? this.getDate(responseObj.city.sunrise) : null}
+        //       sunset={responseObj ? this.getDate(responseObj.city.sunset) : null}
+        //       onChange={this.changeUnit}
+        //     />)))
+      )}
+    </div>
+  );
 }
 
 export default App;

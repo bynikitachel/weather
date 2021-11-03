@@ -1,29 +1,30 @@
 import React, { useState } from 'react'
 import './tableInfo.css'
 import Toggle2 from '../ui/Toggle2'
+import TableInfoDay from '../TableInfoDay/TableInfoDay'
 
-function TableInfo({ name, pressure, temp, humidity, sunrise, sunset }) {
+function TableInfo({ data }) {
     const [checked, setChecked] = useState(false)
-    let temper = !checked ? Math.round(temp - 273) + '℃' : Math.round(temp) + 'K';
+    // let temper = !checked ? Math.round(temp - 273) + '℃' : Math.round(temp) + 'K';
     return (
         <div className="container-table">
-            <div className="cityName">
-                {name}
+            <div className="cityName">{data[1]}
                 <div className="container-toggle-weat">
                     <Toggle2 checked={checked} onChange={() => setChecked(!checked)} rightFied="K" leftField="℃" />
                 </div>
             </div>
-            <div className="container-temp">
+            <TableInfoDay
+                dayData={data}
+            />
+            {/* <div className="container-temp">
                 <div className="container-temp-flex">
                     <div className="bg-img-solar"></div>
-                    {/* <div className="bg-img-rain"></div> */}
                     <div className="temp">
                         <div>{temper}</div>
                     </div>
                 </div>
-
-            </div>
-            <div className={'container-info'}>
+            </div> */}
+            {/* <div className={'container-info'}>
                 <div className="container-item">
                     <div className="img-info icon-pressure"></div>
                     <div className="info">{pressure} чего-то</div>
@@ -40,7 +41,7 @@ function TableInfo({ name, pressure, temp, humidity, sunrise, sunset }) {
                     <div className="img-info icon-sunset"></div>
                     <div className="info">{sunset}</div>
                 </div>
-            </div>
+            </div> */}
         </div >
     )
 }

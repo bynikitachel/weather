@@ -1,6 +1,6 @@
-import { Component } from 'react'
+import React from 'react'
 
-function TableRow({ weekDate, weekTemp }) {
+function TableRow({ weekDate, weekTemp, weekPessure, weekhumidity }) {
     console.log(weekDate);
     const weekDays = ['Sunday ', 'Monday', 'Tuesday', 'Wednesday ', 'Thursday ', 'Friday ', 'Saturday ']
     const yearMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -11,10 +11,11 @@ function TableRow({ weekDate, weekTemp }) {
 
     return (
         <tr>
-            <td>{dateNum + ' ' + yearMonths[monthNum]}</td>
+            <td>{yearMonths[monthNum] + ', ' + dateNum}</td>
             <td>{weekDays[dayNum]}</td>
             <td>{weekTemp}</td>
-            <td>4</td>
+            <td>{Math.round(weekPessure)}</td>
+            <td>{Math.round(weekhumidity)}%</td>
         </tr>
 
     )

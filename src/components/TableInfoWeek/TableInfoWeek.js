@@ -3,12 +3,16 @@ import './tableInfoWeek.css'
 import Toggle2 from '../ui/Toggle2'
 import TableRow from './TableRow/TableRow'
 
-const weekDays = ['Sunday ', 'Monday', 'Tuesday', 'Wednesday ', 'Thursday ', 'Friday ', 'Saturday ']
 
-function TableInfoWeek({ name, pressure, temp, weekData }) {
+function TableInfoWeek({ name, weekData }) {
     console.log(weekData);
     const [checked, setChecked] = useState(false)
-    let temper = !checked ? Math.round(temp - 273) + '℃' : Math.round(temp) + 'K';
+    let temper = []
+    weekData && weekData.map((e, i, k) => (
+        temper.push(!checked ? Math.round(weekData[i].temp.average - 273) + '℃' : Math.round(weekData[i].temp.average) + 'K')
+        // console.log('qwer', weekData[i].temp.average)
+    ))
+    console.log('arr', temper);
     return (
         <div className="container-table">
             <div className="cityName">
@@ -18,18 +22,20 @@ function TableInfoWeek({ name, pressure, temp, weekData }) {
                 </div>
             </div>
             <table>
-                <tr>
+                <tr className="tableHead">
                     <th>Date</th>
                     <th>Day</th>
                     <th>Temperature</th>
-                    <th>325</th>
+                    <th>Pressure</th>
+                    <th>Humidity</th>
                 </tr>
                 {weekData && weekData.map((e, i, k) => (
                     <TableRow
-                        // day={weekDays[i]}
-                        key={k + '123'}
+                        key={i + '123'}
                         weekDate={weekData[i].dt}
-                        weekTemp={weekData[i].temp.average}
+                        weekTemp={temper[i]}
+                        weekPessure={weekData[i].pressure}
+                        weekhumidity={weekData[i].humidity}
                     />
                 ))}
             </table>
