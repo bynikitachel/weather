@@ -1,9 +1,10 @@
 import React from 'react'
 
+const weekDays = ['Sunday ', 'Monday', 'Tuesday', 'Wednesday ', 'Thursday ', 'Friday ', 'Saturday ']
+const yearMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
 function TableRow({ weekDate, weekTemp, weekPessure, weekhumidity }) {
     console.log(weekDate);
-    const weekDays = ['Sunday ', 'Monday', 'Tuesday', 'Wednesday ', 'Thursday ', 'Friday ', 'Saturday ']
-    const yearMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     let date = new Date(weekDate * 1000);
     let dayNum = date.getDay()
     let monthNum = date.getMonth()
