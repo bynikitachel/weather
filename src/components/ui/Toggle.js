@@ -1,7 +1,7 @@
 import React from 'react'
-import './toggle2.css'
+import './toggle.css'
 
-function Toggle2(props) {
+function Toggle(props) {
     return (
         <div className="switcher">
             <div className="container-unit green"><div>{props.leftField}</div></div>
@@ -14,4 +14,4 @@ function Toggle2(props) {
     )
 }
 
-export default Toggle2
+export default Toggle

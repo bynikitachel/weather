@@ -8,24 +8,6 @@
         /* height: calc(100vh - 4em - 10px - 2vmin - 40px - 2em - 20px - 20px - 40px - 90px - 80px); */
     }
     
-    .container-info {
-        display: flex;
-        background: rgba(33, 137, 221, .5);
-        color: aliceblue;
-        text-shadow: 1px 1px 2px black;
-        border-radius: 20px;
-        /* margin-top: 20px; */
-        justify-content: space-around;
-        /* height: calc(100% - 2em - 60px - 150px); */
-    }
-    
-    .container-item {
-        display: flex;
-        flex: 1;
-        justify-content: center;
-        margin: 20px 0 20px;
-    }
-    
     .cityName {
         padding: 20px 0;
         font-size: 2em;
@@ -33,79 +15,11 @@
         margin-bottom: 20px;
     }
     
-    .container-temp {
-        /* height: 50%; */
-        border-top: solid 1px;
-        display: flex;
-        justify-content: center;
-        position: relative;
-        font-size: 3em;
-        /* color: cornsilk; */
-        /* width: 80%;
-    margin: 0 auto; */
-    }
-    
-    .container-temp-flex {
-        display: flex;
-        /* background: rgb(100, 149, 237);
-    border-radius: 20px; */
-    }
-    
-    .bg-img-solar {
-        background: url('../../img/solar.png');
-        background-size: cover;
-        height: 150px;
-        width: 150px;
-    }
-    
-    .bg-img-rain {
-        background: url('../../img/rain.png');
-    }
-    
-    .temp {
-        display: flex;
-        align-items: center;
-        padding: 0 10px 0 10px;
-    }
-    
-    .temp div {
-        /* margin: 135% 0; */
-    }
-    
-    .icon-pressure {
-        background-image: url('../../img/pressure.png');
-    }
-    
-    .icon-humidity {
-        background-image: url('../../img/him.png');
-    }
-    
-    .icon-sunrise {
-        background-image: url('../../img/sunrise.png');
-    }
-    
-    .icon-sunset {
-        background-image: url('../../img/sunset.png');
-    }
-    
-    .info {
-        margin: auto 0 auto 10px;
-        height: auto;
-    }
-    
     .container-toggle-weat {
         position: absolute;
         right: 0;
         top: 50%;
         transform: translateY(-50%);
-    }
-    
-    table {
-        width: 100%;
-        background-color: rgb(255, 255, 255, 0.5);
-        border-radius: 20px;
-        padding: 10px;
-        border: 1px solid black;
     }
     
     @media (max-width: 855px) {

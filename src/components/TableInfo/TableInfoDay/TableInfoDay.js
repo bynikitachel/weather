@@ -1,5 +1,6 @@
 import React from 'react'
 import { getDate, convertToCelsium } from '../../../utils'
+import './tableInfoDay.css'
 
 function TableInfoDay({ dayData, tempInCelsium }) {
 

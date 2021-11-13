@@ -1,0 +1,21 @@
+.container-search {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 10px 0;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    background: rgb(255, 255, 255, 0.7);
+    border-radius: 20px;
+    margin: 30px 20% 30px 20%;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+    padding: 0 0 20px 0;
+    color: rgb(45, 45, 46);
+    font-weight: 300;
+}

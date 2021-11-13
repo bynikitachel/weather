@@ -1,0 +1,65 @@
+.container-temp {
+    border-top: solid 1px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    font-size: 3em;
+}
+
+.container-temp-flex {
+    display: flex;
+}
+
+.bg-img-solar {
+    background: url('../../../img/solar.png');
+    background-size: cover;
+    height: 150px;
+    width: 150px;
+}
+
+.bg-img-rain {
+    background: url('../../../img/rain.png');
+}
+
+.temp {
+    display: flex;
+    align-items: center;
+    padding: 0 10px 0 10px;
+}
+
+.container-info {
+    display: flex;
+    background: rgba(33, 137, 221, .5);
+    color: aliceblue;
+    text-shadow: 1px 1px 2px black;
+    border-radius: 20px;
+    justify-content: space-around;
+}
+
+.container-item {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    margin: 20px 0 20px;
+}
+
+.icon-pressure {
+    background-image: url('../../../img/pressure.png');
+}
+
+.icon-humidity {
+    background-image: url('../../../img/him.png');
+}
+
+.icon-sunrise {
+    background-image: url('../../../img/sunrise.png');
+}
+
+.icon-sunset {
+    background-image: url('../../../img/sunset.png');
+}
+
+.info {
+    margin: auto 0 auto 10px;
+    height: auto;
+}

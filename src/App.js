@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import './App.css'
-import City from './components/City/City'
-import SearchCity from './components/SearchCity/SearchCity'
+import Header from './components/Header/Header'
+import InputCity from './components/Search/InputCity/InputCity'
+import SearchCity from './components/Search/SearchCity/SearchCity'
 import TableInfo from './components/TableInfo/TableInfo'
-import Toggle2 from './components/ui/Toggle2'
+import Toggle from './components/ui/Toggle'
 import ErrorWindow from './components/ErrorWindow/ErrorWindow'
+import Search from './components/Search/Search'
 
 function App() {
 
@@ -47,27 +49,18 @@ function App() {
 
   return (
     <div className="App" >
-      <header className="App-header">
-        <p>WeatherNow</p>
-      </header>
+      <Header />
       <div className="bg"></div>
-      <div className="content">
-        <h1>Enter the city to get the weather:</h1>
-        <div className="container-search">
-          <City
-            value={data.value}
-            onChange={handleChange} />
-          <div style={{ margin: "0 10px" }}>
-            <Toggle2
-              checked={data.checkedWeat}
-              onChange={changeWeat}
-              leftField="day"
-              rightFied="week" />
-          </div>
-          <SearchCity onClick={getTableInfo} />
-        </div>
-      </div>
-      {data.error ? <ErrorWindow /> : data.responseObj && (<TableInfo data={data.responseObj} />)}
+      <Search
+        InputCity={<InputCity value={data.value} onChange={handleChange} />}
+        Toggle={<Toggle checked={data.checkedWeat} onChange={changeWeat} leftField="day" rightFied="week" />}
+        SearchCity={<SearchCity onClick={getTableInfo} />}
+      />
+      {data.error ?
+        <ErrorWindow /> :
+        data.responseObj &&
+        <TableInfo data={data.responseObj} />
+      }
     </div>
   );
 }
