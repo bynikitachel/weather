@@ -1,0 +1,8 @@
+.container-footer {
+    background-color: rgb(20, 220, 37);
+    font-size: calc(10px + 2vmin);
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 2;
+}
