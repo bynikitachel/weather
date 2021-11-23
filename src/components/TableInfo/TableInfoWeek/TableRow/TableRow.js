@@ -15,7 +15,7 @@ function TableRow({ weekDate, weekTemp, weekPessure, weekhumidity }) {
             <td>{yearMonths[monthNum] + ', ' + dateNum}</td>
             <td>{weekDays[dayNum]}</td>
             <td>{weekTemp}</td>
-            <td>{Math.round(weekPessure)}</td>
+            <td>{Math.round(weekPessure)} hPa</td>
             <td>{Math.round(weekhumidity)}%</td>
         </tr>
 

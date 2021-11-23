@@ -20,8 +20,16 @@ function TableInfo({ data }) {
                 </div>
             </div>
             {data.list ?
-                <TableInfoWeek tempInCelsium={checked} weekData={data.list.slice(0, 7)} /> :
-                <TableInfoDay tempInCelsium={checked} dayData={{ ...data.main, ...data.sys }} />
+                <TableInfoWeek
+                    tempInCelsium={checked}
+                    weekData={data.list.slice(0, 7)}
+                /> :
+                <TableInfoDay
+                    tempInCelsium={checked}
+                    dayData={{ ...data.main, ...data.sys }}
+                    dt={data.dt}
+                    weatherProfile={data.weather[0].main}
+                />
             }
         </div >
     )

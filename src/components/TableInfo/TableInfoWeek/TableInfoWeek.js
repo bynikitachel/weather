@@ -5,8 +5,6 @@ import { convertToCelsium } from '../../../utils'
 
 
 function TableInfoWeek({ weekData, tempInCelsium }) {
-    console.log('_________', weekData[0].dt);
-
     return (
         <div className="container-table-info">
             <table>

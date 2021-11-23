@@ -10,7 +10,7 @@ import { useNavigate, useParams } from "react-router-dom"
 
 function Weather() {
     let navigate = useNavigate();
-    let params = useParams();
+    // let params = useParams();
 
 
     const { name } = useParams();
@@ -70,7 +70,7 @@ function Weather() {
     }
 
     return (
-        <div>
+        <div className="container">
             <Search
                 InputCity={<InputCity value={data.value} onChange={handleChange} />}
                 Toggle={<Toggle checked={data.checkedWeat} onChange={changeWeat} leftField="day" rightFied="week" />}

@@ -1,13 +1,12 @@
 input {
-    background: rgb(126, 129, 146);
+    background: rgb(255, 255, 255);
     border: none;
     outline: none;
     height: 34px;
     padding: 10px 0 10px 0;
     text-indent: 20px;
-    /* padding: 0; */
     width: 100%;
-    color: #fff;
+    color: rgb(0, 0, 0);
     border-radius: 27px;
     margin-right: auto;
 }
@@ -17,7 +16,7 @@ input::placeholder {
 }
 
 input:focus {
-    background: darkslategray;
+    background: rgb(255, 255, 255);
 }
 
 .container-city {

@@ -1,13 +1,39 @@
+.container-table-info {
+    background-size: cover;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-bottom: 1px solid;
+    /* height: 100%; */
+    width: 100%;
+    border-radius: 0 0 20px 20px;
+}
+
+.bg-night {
+    background-color: black;
+}
+
+.bg-day {
+    background-color: rgb(126, 211, 226);
+}
+
+.cloud {
+    background-image: url('../../../img/cloud.png');
+}
+
+.snow {
+    background-image: url('../../../img/snow.png');
+}
+
+.rain {
+    background-image: url('../../../img/rain.png');
+}
+
 .container-temp {
-    border-top: solid 1px;
     display: flex;
     justify-content: center;
     position: relative;
     font-size: 3em;
-}
-
-.container-temp-flex {
-    display: flex;
+    padding: 10px 0 10px;
 }
 
 .bg-img-solar {
@@ -17,23 +43,47 @@
     width: 150px;
 }
 
-.bg-img-rain {
-    background: url('../../../img/rain.png');
+.bg-img-moon {
+    background: url('../../../img/moon.png');
+    background-size: cover;
+    height: 150px;
+    width: 150px;
 }
 
 .temp {
-    display: flex;
-    align-items: center;
+    margin: auto 10px;
     padding: 0 10px 0 10px;
+    border-radius: 20px;
+}
+
+.temp-day {
+    background-color: rgb(255, 255, 255, 0.8);
+    border: 1px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+}
+
+.temp-night {
+    background-color: rgb(0, 0, 0, .8);
+    border: 1px solid white;
+    color: white;
 }
 
 .container-info {
     display: flex;
-    background: rgba(33, 137, 221, .5);
     color: aliceblue;
     text-shadow: 1px 1px 2px black;
     border-radius: 20px;
     justify-content: space-around;
+    margin: 0 20px 20px;
+    border: 1px solid black;
+}
+
+.info-night {
+    background: rgba(82, 80, 83, 0.9);
+}
+
+.info-day {
+    background: rgba(78, 192, 207, 0.8);
 }
 
 .container-item {

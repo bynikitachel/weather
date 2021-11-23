@@ -12,3 +12,4 @@ export const getDate = (timestamp) => {
     } console.log(timestamp);
     return date.getHours() + ":" + min;
 }
+
