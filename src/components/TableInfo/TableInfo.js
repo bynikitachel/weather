@@ -9,7 +9,8 @@ function TableInfo({ data }) {
 
     return (
         <div className="container-table">
-            <div className="cityName">{data.list ? data.city.name : data.name}
+            <div className="cityName">
+                <div className="city">{data.list ? data.city.name : data.name}</div>
                 <div className="container-toggle-weat">
                     <Toggle
                         checked={checked}

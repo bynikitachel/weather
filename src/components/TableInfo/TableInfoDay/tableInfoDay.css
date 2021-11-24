@@ -113,3 +113,35 @@
     margin: auto 0 auto 10px;
     height: auto;
 }
+
+.img-info {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: 70% 70%;
+    background-position: center;
+    border-radius: 15px;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+img {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%)
+}
+
+@media (max-width: 1080px) {
+    .container-item {
+        flex-direction: column;
+    }
+    .info {
+        margin: 10px auto 0;
+        font-size: 12px;
+    }
+    .img-info {
+        margin: 0 auto;
+    }
+}

@@ -1,10 +1,18 @@
 .App {
     text-align: center;
     /* background-color: cadetblue; */
+    background-color: blueviolet;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.background {
+    background-color: blueviolet;
+    height: 100vh;
 }
 
 .bg {
-    background: url('./img/123.png');
+    /* background: url('./img/123.png'); */
     height: calc(100vh - 4em - 10px - 2vmin);
     width: 100%;
     filter: blur(10px);
@@ -29,5 +37,11 @@
 @media (max-width: 800px) {
     .container-search {
         flex-direction: column;
+    }
+}
+
+@media (max-width: 1080px) {
+    .container {
+        width: 90%;
     }
 }

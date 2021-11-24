@@ -17,7 +17,7 @@ export default function App(props) {
     <Router>
       <div className="App" >
         <Header />
-        <div className="bg"></div>
+        {/* <div className="bg"></div> */}
         <div className="container">
           <Routes>
             <Route path="/" exact element={<Home />} />

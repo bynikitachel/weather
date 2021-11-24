@@ -10,13 +10,8 @@ import { useNavigate, useParams } from "react-router-dom"
 
 function Weather() {
     let navigate = useNavigate();
-    // let params = useParams();
-
 
     const { name } = useParams();
-    console.log(name)
-
-
 
     const [data, setData] = useState({
         value: '',
@@ -81,6 +76,7 @@ function Weather() {
                 data.responseObj &&
                 <TableInfo data={data.responseObj} />
             }
+            <div style={{ height: "30px" }}></div>
         </div>
     )
 }

@@ -1,18 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './home.css'
 
 
 export default function Home() {
     return (
         <div>
-            <div className="container-table">
+            <div className="description">
                 OpenWeatherMap — онлайн сервис, который предоставляет платный (есть функционально ограниченная бесплатная версия) API для доступа к данным о текущей погоде, прогнозам и историческим данным. В качестве источника данных используются официальные метеорологические службы, данные из метеостанций аэропортов, и данные с частных метеостанций. Информация обрабатываются OpenWeatherMap, после чего, на основе данных строится прогноз погоды и погодные карты, например карты облачности и осадков. Основной идеей сервиса OWM является использование частных погодных станций, которые помогают повысить точность исходной погодной информации и, как следствие, точность прогнозов погоды. Вдохновителями OpenWeatherMap были картографический сервис OpenStreetMap и Википедия, создающие свободную информацию и предоставляющие её бесплатно для всех. В настоящее время OWM является коммерческой организацией.
             </div>
             <Link to="/check-the-weather/">
-                <div className="container-table" style={{ display: "inline", color: "black", fontSize: "30px" }}>
+                <div className="container-check" style={{ display: "inline", color: "black", fontSize: "30px" }}>
                     Сheck the weather
                 </div>
+                <div style={{ height: "30px" }}></div>
             </Link>
-        </div>
+        </div >
     )
 }

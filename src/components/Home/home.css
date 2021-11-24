@@ -1,0 +1,13 @@
+.description {
+    margin: 30px auto;
+    padding: 20px;
+    background: rgb(255, 255, 255, 0.7);
+    border-radius: 20px;
+}
+
+.container-check {
+    background: rgb(255, 255, 255, 0.7);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 30px
+}
