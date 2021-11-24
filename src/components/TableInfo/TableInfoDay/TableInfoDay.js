@@ -4,7 +4,7 @@ import './tableInfoDay.css'
 
 function TableInfoDay({ dayData, tempInCelsium, dt, weatherProfile }) {
 
-    const setProfile = () => {
+    const [profile, bg, temp, info] = (() => {
         let profile
         let bg
         let temp
@@ -31,21 +31,21 @@ function TableInfoDay({ dayData, tempInCelsium, dt, weatherProfile }) {
         }
 
         return [profile, bg, temp, info]
-    }
+    })()
 
     return (
-        <div className={`container-table-info ${setProfile()[0]} ${setProfile()[1]}`}>
+        <div className={`container-table-info ${profile} ${bg}`}>
             <div className="container-temp">
                 <div style={{ display: "flex" }}>
                     {dt < dayData.sunset ?
                         <div className="bg-img-solar"></div> :
                         <div className="bg-img-moon"></div>}
-                    <div className={`temp ${setProfile()[2]}`}>
+                    <div className={`temp ${temp}`}>
                         <div>{!tempInCelsium ? convertToCelsium(dayData.temp) + '℃' : Math.round(dayData.temp) + 'K'}</div>
                     </div>
                 </div>
             </div>
-            <div className={`container-info ${setProfile()[3]}`}>
+            <div className={`container-info ${info}`}>
                 <div className="container-item">
                     <div className="img-info icon-pressure"></div>
                     <div className="info">{dayData.pressure} hPa</div>

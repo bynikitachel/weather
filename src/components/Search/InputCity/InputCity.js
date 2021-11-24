@@ -5,7 +5,7 @@ function InputCity(props) {
     return (
         <div className="container-city">
             <input
-                autofocus
+                autoFocus
                 placeholder="Input city"
                 value={props.value}
                 onChange={props.onChange}>

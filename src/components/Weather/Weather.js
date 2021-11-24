@@ -70,7 +70,7 @@ function Weather() {
     }
 
     return (
-        <div className="container">
+        <div>
             <Search
                 InputCity={<InputCity value={data.value} onChange={handleChange} />}
                 Toggle={<Toggle checked={data.checkedWeat} onChange={changeWeat} leftField="day" rightFied="week" />}

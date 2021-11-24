@@ -18,40 +18,33 @@ export default function App(props) {
       <div className="App" >
         <Header />
         <div className="bg"></div>
-        <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/check-the-weather">
-            <Route
-              path=":name"
-              element={
-                <Weather
-                  data={props.data}
-                  handleChange={props.handleChange}
-                  changeWeat={props.changeWeat}
-                  getTableInfo={props.getTableInfo}
-                />}
-            />
-            <Route
-              path=""
-              element={
-                <Weather
-                  data={props.data}
-                  handleChange={props.handleChange}
-                  changeWeat={props.changeWeat}
-                  getTableInfo={props.getTableInfo}
-                />}
-            />
-          </Route>
-          {/* <Route path="check-the-weather/:name?"
-            element={
-              <Weather
-                data={props.data}
-                handleChange={props.handleChange}
-                changeWeat={props.changeWeat}
-                getTableInfo={props.getTableInfo}
-              />}
-          /> */}
-        </Routes>
+        <div className="container">
+          <Routes>
+            <Route path="/" exact element={<Home />} />
+            <Route path="/check-the-weather">
+              <Route
+                path=":name"
+                element={
+                  <Weather
+                    data={props.data}
+                    handleChange={props.handleChange}
+                    changeWeat={props.changeWeat}
+                    getTableInfo={props.getTableInfo}
+                  />}
+              />
+              <Route
+                path=""
+                element={
+                  <Weather
+                    data={props.data}
+                    handleChange={props.handleChange}
+                    changeWeat={props.changeWeat}
+                    getTableInfo={props.getTableInfo}
+                  />}
+              />
+            </Route>
+          </Routes>
+        </div>
         {/* <Footer /> */}
       </div>
     </Router >
