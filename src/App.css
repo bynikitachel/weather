@@ -1,26 +1,8 @@
 .App {
     text-align: center;
-    /* background-color: cadetblue; */
-    background-color: blueviolet;
+    background: linear-gradient(to bottom right, blue, pink);
     background-size: cover;
     min-height: 100vh;
-}
-
-.background {
-    background-color: blueviolet;
-    height: 100vh;
-}
-
-.bg {
-    /* background: url('./img/123.png'); */
-    height: calc(100vh - 4em - 10px - 2vmin);
-    width: 100%;
-    filter: blur(10px);
-    background-size: cover;
-    position: absolute;
-    z-index: -1;
-    /* background-attachment: fixed;
-    background-position: 400px 400px; */
 }
 
 .container {
