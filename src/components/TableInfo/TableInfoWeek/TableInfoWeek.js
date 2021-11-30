@@ -4,27 +4,30 @@ import TableRow from './TableRow/TableRow'
 import { convertToCelsium } from '../../../utils'
 
 
-function TableInfoWeek({ weekData, tempInCelsium }) {
+function TableInfoWeek({ weekData, view }) {
     return (
         <div className="container-table-info">
-            <table>
-                <tr className="tableHead">
-                    <th>Date</th>
-                    <th>Day</th>
-                    <th>Temperature</th>
-                    <th>Pressure</th>
-                    <th>Humidity</th>
-                </tr>
-                {weekData && weekData.map((e, i) => (
-                    <TableRow
-                        key={i + '123'}
-                        weekDate={weekData[i].dt}
-                        weekTemp={!tempInCelsium ? convertToCelsium(weekData[i].temp.average) + '℃' : Math.round(weekData[i].temp.average) + 'K'}
-                        weekPessure={weekData[i].pressure}
-                        weekhumidity={weekData[i].humidity}
-                    />
-                ))}
-            </table>
+            {!view ?
+                <table>
+                    <tr className="tableHead">
+                        <th>Date</th>
+                        <th>Day</th>
+                        <th>Temperature</th>
+                        <th>Pressure</th>
+                        <th>Humidity</th>
+                    </tr>
+                    {weekData && weekData.map((e, i) => (
+                        <TableRow
+                            key={i + '123'}
+                            weekDate={weekData[i].dt}
+                            weekTemp={convertToCelsium(weekData[i].temp.average) + '℃'}
+                            weekPessure={weekData[i].pressure}
+                            weekhumidity={weekData[i].humidity}
+                        />
+                    ))}
+                </table> : <div>я пидорас</div>
+            }
+
         </div >
     )
 }

@@ -12,17 +12,25 @@ function TableInfo({ data }) {
             <div className="cityName">
                 <div className="city">{data.list ? data.city.name : data.name}</div>
                 <div className="container-toggle-weat">
-                    <Toggle
-                        checked={checked}
-                        onChange={() => setChecked(!checked)}
-                        rightFied="K"
-                        leftField="℃"
-                    />
+                    {data.list ?
+                        <Toggle
+                            checked={checked}
+                            onChange={() => setChecked(!checked)}
+                            rightFied="2"
+                            leftField="1"
+                        /> :
+                        <Toggle
+                            checked={checked}
+                            onChange={() => setChecked(!checked)}
+                            rightFied="K"
+                            leftField="℃"
+                        />
+                    }
                 </div>
             </div>
             {data.list ?
                 <TableInfoWeek
-                    tempInCelsium={checked}
+                    view={checked}
                     weekData={data.list.slice(0, 7)}
                 /> :
                 <TableInfoDay

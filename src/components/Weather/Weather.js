@@ -31,9 +31,8 @@ function Weather() {
     const handleChange = (event) => {
         setData({ ...data, value: event.target.value })
         if (event.code === "Enter") {
-            event.preventDefault();
-            event.stopPropagation();
-            console.log(data.value)
+            event.preventDefault()
+            event.stopPropagation()
             getTableInfo(data.value)
 
         }
