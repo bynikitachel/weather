@@ -7,10 +7,10 @@ function Search(props) {
             <h1>Enter the city to get the weather:</h1>
             <div className="container-search">
                 {props.InputCity}
-                <div style={{ margin: "0 10px" }}>
-                    {props.Toggle}
+                <div className="container-toggle-searchCity">
+                    <div className="container-toggle">{props.Toggle}</div>
+                    {props.SearchCity}
                 </div>
-                {props.SearchCity}
             </div>
         </div>
     )

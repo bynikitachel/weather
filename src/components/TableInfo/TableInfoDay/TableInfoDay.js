@@ -5,19 +5,17 @@ import './tableInfoDay.css'
 function TableInfoDay({ dayData, tempInCelsium, dt, weatherProfile }) {
 
     const [profile, bg, temp, info] = (() => {
-        let profile
-        let bg
-        let temp
-        let info
+        let profile, bg, temp, info
 
-        if (weatherProfile === 'Clouds') {
-            profile = 'cloud'
-        } else if (weatherProfile === 'Clear') {
-            profile = ''
-        } else if (weatherProfile === 'Snow') {
-            profile = 'snow'
-        } else if (weatherProfile === 'Rain') {
-            profile = 'rain'
+        switch (weatherProfile) {
+            case 'Clouds': profile = 'cloud'
+                break
+            case 'Clear': profile = ''
+                break
+            case 'Snow': profile = 'snow'
+                break
+            case 'Rain': profile = 'rain'
+                break
         }
 
         if (dt > dayData.sunset) {

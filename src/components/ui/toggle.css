@@ -1,11 +1,8 @@
 .switcher {
     /* position: absolute; */
     display: flex;
-    padding: 10px;
-    /* background: rgb(158, 208, 218); */
     border-radius: 27px;
     height: 34px;
-    margin: auto 0;
     font-size: 0.5em;
 }
 

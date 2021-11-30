@@ -5,6 +5,7 @@ function InputCity(props) {
     return (
         <div className="container-city">
             <input
+                onKeyDown={(event) => props.onChange(event)}
                 autoFocus
                 placeholder="Input city"
                 value={props.value}

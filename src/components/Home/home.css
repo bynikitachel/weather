@@ -6,8 +6,6 @@
 }
 
 .container-check {
-    background: rgb(255, 255, 255, 0.7);
-    border-radius: 20px;
-    padding: 20px;
-    margin-bottom: 30px
+    margin: 0 auto;
+    width: 50%;
 }

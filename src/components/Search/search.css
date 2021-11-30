@@ -19,3 +19,28 @@ h1 {
     color: rgb(45, 45, 46);
     font-weight: 300;
 }
+
+.container-toggle-searchCity {
+    display: flex;
+}
+
+.container-toggle {
+    margin: auto 0;
+    margin-left: 10px;
+}
+
+.switcher {
+    margin-right: 10px;
+}
+
+@media (max-width: 1080px) {
+    .container-search {
+        flex-direction: column;
+    }
+    .container-toggle-searchCity {
+        margin-top: 10px;
+    }
+    .container-toggle {
+        margin: auto 0;
+    }
+}

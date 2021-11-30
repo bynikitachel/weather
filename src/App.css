@@ -34,12 +34,6 @@
     }
 }
 
-@media (max-width: 800px) {
-    .container-search {
-        flex-direction: column;
-    }
-}
-
 @media (max-width: 1080px) {
     .container {
         width: 90%;
