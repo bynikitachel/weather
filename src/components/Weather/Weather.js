@@ -6,6 +6,7 @@ import TableInfo from '../TableInfo/TableInfo'
 import Toggle from '../ui/Toggle'
 import ErrorWindow from '../ErrorWindow/ErrorWindow'
 import { useNavigate, useParams } from "react-router-dom"
+// import Autocomplete from '../Search/InputCity/Autocomplete/Autocomplete'
 
 
 function Weather() {
@@ -19,6 +20,15 @@ function Weather() {
         checkedWeat: false,
         error: false
     })
+
+    // const [cities, setСities] = useState({
+    //     activeSuggestion: 0,
+    //     filteredSuggestions: [],
+    //     showSuggestions: false,
+    //     userInput: "",
+    //     responseObjCities: null,
+    //     cities: []
+    // })
 
     useEffect(() => {
         if (!name) {
@@ -37,6 +47,24 @@ function Weather() {
 
         }
     }
+
+    // const getAutocomlete = () => {
+    //     fetch("https://raw.githubusercontent.com/aZolo77/citiesBase/master/cities.json")
+    //         .then(response => {
+    //             if (response.ok) {
+    //                 response.json().then((res) => setСities({ ...cities, responseObjCities: res }))
+    //                 // console.log(response)
+    //                 console.log(data.error)
+    //             } else {
+    //                 throw new Error('Something went wrong')
+    //             }
+    //         })
+    //         .catch(() => {
+    //             console.log('errrr')
+    //         })
+    // }
+    // getAutocomlete()
+    // console.log(cities.responseObjCities);
 
     const changeWeat = () => {
         setData({ ...data, checkedWeat: !data.checkedWeat })
