@@ -2,13 +2,14 @@ import React from "react";
 import './inputCity.css';
 
 function InputCity(props) {
+    const { value, onChange } = props
     return (
         <div className="container-city">
             <input
-                onKeyDown={(event) => props.onChange(event)}
+                onKeyDown={(event) => onChange(event)}
                 autoFocus
                 placeholder="Input city"
-                value={props.value}
+                value={value}
                 onChange={props.onChange}>
             </input>
         </div>

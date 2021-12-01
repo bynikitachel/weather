@@ -21,14 +21,14 @@ function Weather() {
         error: false
     })
 
-    // const [cities, setСities] = useState({
-    //     activeSuggestion: 0,
-    //     filteredSuggestions: [],
-    //     showSuggestions: false,
-    //     userInput: "",
-    //     responseObjCities: null,
-    //     cities: []
-    // })
+    const [cities, setСities] = useState({
+        activeSuggestion: 0,
+        filteredSuggestions: [],
+        showSuggestions: false,
+        userInput: "",
+        responseObjCities: null,
+        cities: []
+    })
 
     useEffect(() => {
         if (!name) {
@@ -44,27 +44,44 @@ function Weather() {
             event.preventDefault()
             event.stopPropagation()
             getTableInfo(data.value)
-
         }
+
+        // const { suggestions } = setСities();
+        // console.log('suggestions-----', suggestions)
+        // const userInput = event.currentTarget.value;
+
+        // const filteredSuggestions = suggestions.filter(
+        //     suggestion =>
+        //         suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
+        // );
+
+        // this.setState({
+        //     activeSuggestion: 0,
+        //     filteredSuggestions,
+        //     showSuggestions: true,
+        //     userInput: event.currentTarget.value
+        // });
     }
 
-    // const getAutocomlete = () => {
-    //     fetch("https://raw.githubusercontent.com/aZolo77/citiesBase/master/cities.json")
-    //         .then(response => {
-    //             if (response.ok) {
-    //                 response.json().then((res) => setСities({ ...cities, responseObjCities: res }))
-    //                 // console.log(response)
-    //                 console.log(data.error)
-    //             } else {
-    //                 throw new Error('Something went wrong')
-    //             }
-    //         })
-    //         .catch(() => {
-    //             console.log('errrr')
-    //         })
-    // }
-    // getAutocomlete()
-    // console.log(cities.responseObjCities);
+    const getAutocomlete = () => {
+        fetch("https://raw.githubusercontent.com/aZolo77/citiesBase/master/cities.json")
+            .then(response => {
+                if (response.ok) {
+                    response.json().then((res) => setСities({ ...cities, cities: res }))
+                    console.log(data.error)
+                } else {
+                    throw new Error('Something went wrong')
+                }
+            })
+            .catch(() => {
+                console.log('errrr')
+            })
+
+    }
+
+    useEffect(() => {
+        getAutocomlete()
+    }, [cities.cities.length])
 
     const changeWeat = () => {
         setData({ ...data, checkedWeat: !data.checkedWeat })
